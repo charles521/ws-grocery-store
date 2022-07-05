@@ -1,28 +1,16 @@
 <template>
   <div class="home">
-    <ws-button @wsClick="showPopup" />
-    <ws-calendar v-if="calendarShow" @close="calendarClose" />
+    <ws-button />
   </div>
 </template>
 
 <script>
-import { WsCalendar } from '@packages/index'
 export default {
   name: 'HomeView',
   components: {
-    WsCalendar
   },
   data() {
     return {
-      calendarShow: false
-    }
-  },
-  methods: {
-    showPopup() {
-      this.calendarShow = true
-    },
-    calendarClose() {
-      this.calendarShow = false
     }
   }
 }

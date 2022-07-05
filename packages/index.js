@@ -1,10 +1,8 @@
 import WsButton from './ws-button'
-import WsCalendar from './ws-calendar'
 
 // 存储组件列表
 const components = [
-  WsButton,
-  WsCalendar
+  WsButton
 ]
 
 // 定义install 方法，接受Vue作为参数。如果使用use注册插件，则所有的组件都将被注册
@@ -22,8 +20,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export {
   install,
-  WsButton,
-  WsCalendar
+  WsButton
 }
 
 export default {

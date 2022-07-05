@@ -1,6 +1,6 @@
 {
   "name": "ws-grocery-store",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "charles的杂货铺",
   "author": "charles_ws <354395702@qq.com>",
   "main": "lib/ws-grocery-store.umd.min.js",
