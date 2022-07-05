@@ -1,7 +1,6 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./examples/settings.js')
-const vConsolePlugin = require('vconsole-webpack-plugin')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -22,10 +21,6 @@ module.exports = {
   pages: pages,
   // 强制内联CSS
   css: { extract: false },
-  publicPath: '/',
-  outputDir: 'dist',
-  assetsDir: 'static',
-  lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
     port: port,
@@ -35,16 +30,7 @@ module.exports = {
       errors: true
     }
   },
-  configureWebpack: (config) => {
-    const envType = process.env.ENV !== 'production'
-    const pluginsDev = [
-      // eslint-disable-next-line new-cap
-      new vConsolePlugin({
-        filter: [], // 需要过滤的入口文件
-        enable: envType
-      })
-    ]
-    config.plugins = [...config.plugins, ...pluginsDev]
+  configureWebpack: () => {
     return {
       name: name,
       resolve: {
