@@ -21,7 +21,7 @@ module.exports = {
   pages: pages,
   productionSourceMap: false,
   css: {
-    extract: false
+    extract: true
   },
   devServer: {
     port: port,

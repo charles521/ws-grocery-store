@@ -6,7 +6,7 @@
     这是通过npm安装的按钮
     <br>
     <br>
-    <van-button class="wbtn" type="primary">ws-button</van-button>
+    <van-button class="wbtn" type="primary" @click="btnClick">ws-button</van-button>
   </div>
 </template>
 <script>
@@ -20,6 +20,11 @@ export default {
   data() {
     return {
 
+    }
+  },
+  methods: {
+    btnClick() {
+      this.$emit('wsClick')
     }
   }
 }
