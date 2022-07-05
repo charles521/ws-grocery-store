@@ -22,5 +22,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   // 导出的对象必须有install， 才能被Vue.use() 方法安装
   install,
-  WsButton
+  ...components
 }

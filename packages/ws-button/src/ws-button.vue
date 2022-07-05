@@ -6,7 +6,7 @@
     这是通过npm安装的按钮
     <br>
     <br>
-    <van-button type="primary">ws-button</van-button>
+    <van-button class="wbtn" type="primary">ws-button</van-button>
   </div>
 </template>
 <script>
@@ -24,3 +24,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.ws-button {
+  ::v-deep.wbtn {
+    color: bisque;
+    font-weight: bold;
+  }
+}
+</style>

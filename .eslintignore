@@ -2,3 +2,4 @@ build/*.js
 examples/assets
 public
 dist
+lib

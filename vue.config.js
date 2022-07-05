@@ -19,9 +19,10 @@ const pages = {
 
 module.exports = {
   pages: pages,
-  // 强制内联CSS
-  css: { extract: false },
   productionSourceMap: false,
+  css: {
+    extract: false
+  },
   devServer: {
     port: port,
     open: true,
@@ -34,8 +35,10 @@ module.exports = {
     return {
       name: name,
       resolve: {
+        extensions: ['js', '.vue', '.json'],
         alias: {
-          '@': resolve('examples')
+          '@examples': resolve('examples'),
+          '@packages': resolve('packages')
         }
       }
     }
