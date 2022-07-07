@@ -1,9 +1,9 @@
 {
   "name": "ws-grocery-store",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "charles的杂货铺 各种轮子合集",
   "author": "charles_ws <354395702@qq.com>",
-  "main": "lib/ws-grocery-store.umd.min.js",
+  "main": "lib/index/index.js",
   "keyword": "ws-grocery-store vue",
   "private": false,
   "scripts": {

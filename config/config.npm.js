@@ -1,4 +1,5 @@
 const { resolve, getComponentEntries } = require('./utils')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const npmBuildConfig = {
   // 输出文件目录
@@ -17,7 +18,7 @@ const npmBuildConfig = {
       //  依赖输出
       libraryExport: 'default',
       //  依赖名称
-      library: 'ws'
+      library: 'ws-grocery-store'
     },
     externals: {
       vue: {
@@ -25,7 +26,24 @@ const npmBuildConfig = {
         commonjs: 'vue',
         commonjs2: 'vue',
         amd: 'vue'
+      },
+      vant: {
+        root: 'Vant',
+        commonjs: 'vant',
+        commonjs2: 'vant',
+        amd: 'vant'
       }
+    },
+    optimization: {
+      minimizer: [ // 定制压缩选项
+        new TerserPlugin({
+          terserOptions: {
+            output: {
+              comments: false // 去掉注释
+            }
+          }
+        })
+      ]
     }
   },
   //  样式输出
