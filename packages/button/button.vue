@@ -31,10 +31,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ws-button {
-  ::v-deep.wbtn {
-    color: bisque;
-    font-weight: bold;
-  }
-}
+@import url('./button.scss');
 </style>
+

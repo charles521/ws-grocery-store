@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    12132
     <ws-button />
     <br>
     <br>
@@ -9,7 +10,8 @@
 </template>
 
 <script>
-import { WsButton, WsCard } from '@packages/index'
+import WsButton from '@packages/button/button.vue'
+import WsCard from '@packages/card/card.vue'
 
 export default {
   name: 'HomeView',

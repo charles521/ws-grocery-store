@@ -1,7 +1,7 @@
 {
   "name": "ws-grocery-store",
-  "version": "0.0.6",
-  "description": "charles的杂货铺",
+  "version": "0.0.9",
+  "description": "charles的杂货铺 各种轮子合集",
   "author": "charles_ws <354395702@qq.com>",
   "main": "lib/ws-grocery-store.umd.min.js",
   "keyword": "ws-grocery-store vue",
@@ -10,7 +10,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --namews-grocery-store --dest lib packages/index.js"
+    "lib": "vue-cli-service build --target lib --name ws-grocery-store --dest lib packages/index.js",
+    "lib:build": "vue-cli-service build  --mode npm"
   },
   "dependencies": {
     "core-js": "^3.8.3",

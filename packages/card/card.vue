@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ws-card">
     <van-card
       num="2"
       price="2.00"
@@ -11,7 +11,6 @@
 </template>
 <script>
 import { Card } from 'vant'
-
 export default {
   name: 'WsCard',
   components: {
@@ -19,3 +18,6 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+@import url('./card.scss');
+</style>

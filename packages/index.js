@@ -1,32 +1,28 @@
-import WsButton from './ws-button'
-import WsCard from './ws-card'
+import button from './button'
+import card from './card'
 
 // 存储组件列表
 const components = [
-  WsButton,
-  WsCard
+  button,
+  card
 ]
 
 // 定义install 方法，接受Vue作为参数。如果使用use注册插件，则所有的组件都将被注册
-const install = function(Vue) {
-  // 判断是否安装
+const install = Vue => {
   if (install.installed) return
-  // 遍历注册全局组件
-  components.map(component => Vue.component(component.name, component))
+  components.forEach(Component => {
+    Vue.component(Component.name, Component)
+  })
 }
 
-// 判断是否是直接引入文件
+//  如果浏览器环境且拥有全局Vue，则自动安装组件
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export {
-  install,
-  WsButton,
-  WsCard
-}
-
 export default {
   install,
-  ...components
+  button,
+  card
 }
+
