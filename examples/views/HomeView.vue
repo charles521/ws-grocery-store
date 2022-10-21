@@ -6,18 +6,18 @@
     <br>
     <br>
     <ws-card />
+
+    <hl-area />
   </div>
 </template>
 
 <script>
-import WsButton from '@packages/button/button.vue'
-import WsCard from '@packages/card/card.vue'
+import HlArea from '@packages/area/area.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    WsButton,
-    WsCard
+    HlArea
   }
 }
 </script>

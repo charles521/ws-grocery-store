@@ -1,10 +1,8 @@
-import button from './button'
-import card from './card'
+import area from './area'
 
 // 存储组件列表
 const components = [
-  button,
-  card
+  area
 ]
 
 // 定义install 方法，接受Vue作为参数。如果使用use注册插件，则所有的组件都将被注册
@@ -22,7 +20,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  button,
-  card
+  ...components
 }
 

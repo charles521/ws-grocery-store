@@ -4,7 +4,7 @@ module.exports = {
     [
       'import',
       {
-        'libraryName': 'ws-grocery-store',
+        'libraryName': 'hl-deco-comp',
         style: (name) => {
           return `${name}/style.css`
         }

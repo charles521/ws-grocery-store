@@ -1,10 +1,10 @@
 {
-  "name": "ws-grocery-store",
-  "version": "0.0.10",
-  "description": "charles的杂货铺 各种轮子合集",
+  "name": "hl-deco-comp",
+  "version": "0.0.3",
+  "description": "hl h5组件库",
   "author": "charles_ws <354395702@qq.com>",
   "main": "lib/index/index.js",
-  "keyword": "ws-grocery-store vue",
+  "keyword": "hl-deco-comp vue",
   "private": false,
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name ws-grocery-store --dest lib packages/index.js",
+    "lib": "vue-cli-service build --target lib --name hl-deco-comp --dest lib packages/index.js",
     "lib:build": "vue-cli-service build  --mode npm"
   },
   "dependencies": {
