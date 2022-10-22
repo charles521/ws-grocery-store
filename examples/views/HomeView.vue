@@ -1,12 +1,5 @@
 <template>
   <div class="home">
-    12132
-    <ws-button />
-    <br>
-    <br>
-    <br>
-    <ws-card />
-
     <hl-area />
   </div>
 </template>

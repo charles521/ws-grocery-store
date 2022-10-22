@@ -90,7 +90,6 @@ export default {
       this.$nextTick(() => {
         if (!item.child) {
           // 最后一级时
-          console.log(this.selectedAddress)
           this.$emit('selected', this.selectedAddress)
           return
         }
@@ -118,21 +117,24 @@ export default {
     width: 100%;
     padding: 10px 50px;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     flex-shrink: 0;
   }
   .selectd-column {
     width: 100%;
     overflow-x: auto;
-    padding: 10px 0 10px 20px;
+    padding: 10px 0 20px 20px;
     flex-shrink: 0;
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
     .scroll-bar {
       display: flex;
       flex-wrap: nowrap;
       .item {
         flex-shrink: 0;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: bold;
         padding-right: 20px;
         &.active {
@@ -145,7 +147,7 @@ export default {
     flex: 1;
     overflow-y: auto;
     li {
-      font-size: 12px;
+      font-size: 14px;
       padding: 12px 20px;
       border-bottom: 1px solid #f3f3f3;
       display: flex;
