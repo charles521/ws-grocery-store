@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <ul class="address-list">
+    <ul ref="addressListRef" class="address-list">
       <li
         v-for="(item, index) in addressList"
         :key="index"
@@ -70,8 +70,8 @@ export default {
       if (selectedIndex === index) return
       const arr = JSON.parse(JSON.stringify(this.selectedAddress))
       this.selectedAddress = arr.slice(0, index)
-
       this.listIndex = null
+      this.$refs.addressListRef.scrollTop = 0
       if (this.selectedAddress.length === 0) {
         // 为第一个时重置
         this.selectedIndex = 0
@@ -93,6 +93,7 @@ export default {
           this.$emit('selected', this.selectedAddress)
           return
         }
+        this.$refs.addressListRef.scrollTop = 0
         ++this.selectedIndex
         this.selectedAddress.push({ name: '请选择' })
         this.addressList = item.child
@@ -123,8 +124,10 @@ export default {
   }
   .selectd-column {
     width: 100%;
+    height: 41px;
     overflow-x: auto;
-    padding: 10px 0 15px 20px;
+    overflow-y: hidden;
+    padding: 0 0 5px 20px;
     flex-shrink: 0;
     &::-webkit-scrollbar {
       width: 0 !important;
@@ -132,6 +135,7 @@ export default {
     .scroll-bar {
       display: flex;
       flex-wrap: nowrap;
+      padding: 10px 0;
       .item {
         flex-shrink: 0;
         font-size: 16px;
