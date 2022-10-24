@@ -124,7 +124,7 @@ export default {
   .selectd-column {
     width: 100%;
     overflow-x: auto;
-    padding: 10px 0 20px 20px;
+    padding: 10px 0 15px 20px;
     flex-shrink: 0;
     &::-webkit-scrollbar {
       width: 0 !important;
