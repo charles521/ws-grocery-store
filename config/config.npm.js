@@ -27,6 +27,12 @@ const npmBuildConfig = {
         commonjs2: 'vue',
         amd: 'vue'
       },
+      axios: {
+        root: 'Axios',
+        commonjs: 'axios',
+        commonjs2: 'axios',
+        amd: 'axios'
+      },
       vant: {
         root: 'Vant',
         commonjs: 'vant',

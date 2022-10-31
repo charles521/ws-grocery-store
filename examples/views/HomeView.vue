@@ -8,22 +8,25 @@
         </template>
       </hl-area>
     </van-popup>
+    <hl-map />
   </div>
 </template>
 
 <script>
 import { Popup } from 'vant'
 import HlArea from '@packages/area/area.vue'
+import HlMap from '@packages/map/map.vue'
 
 export default {
   name: 'HomeView',
   components: {
     HlArea,
+    HlMap,
     [Popup.name]: Popup
   },
   data() {
     return {
-      areaIsShow: true
+      areaIsShow: false
     }
   },
   methods: {
