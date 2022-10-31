@@ -1,12 +1,12 @@
 <template>
-  <div ref="scrollWarp" class="hl-map">
-    <div class="sticky-header">
+  <div class="hl-map">
+    <div class="fixed-header">
       <!-- 搜索框 -->
       <div class="search-box">
         <van-search
           v-model="search_key"
-          placeholder="请输入搜索关键词"
           show-action
+          placeholder="请输入搜索关键词"
           :clearable="false"
           @search="searchBtnHandle"
           @cancel="clearSearchHandle"
@@ -19,8 +19,7 @@
       </div>
     </div>
     <!-- 地图内容 -->
-    <div class="map-column">
-
+    <div ref="scorllColumn" class="map-column">
       <!-- 地址列表 -->
       <div class="address-list">
         <ul>
@@ -56,7 +55,7 @@
 </template>
 <script>
 import axios from 'axios'
-import { Icon, Search, Toast } from 'vant'
+import { Icon, Search } from 'vant'
 
 export default {
   name: 'HlMap',
@@ -71,16 +70,10 @@ export default {
       addressList: [], // 地址列表数据
       searchList: [], // 搜索结果
       noSearch: false,
-      marker: '', // 标记点
-      loading: null
+      marker: '' // 标记点
     }
   },
   created() {
-    this.loading = Toast.loading({
-      message: '加载中...',
-      forbidClick: true,
-      duration: 0
-    })
     const script = document.createElement('script')
     script.type = 'text/javascript'
     script.src = 'https://webapi.amap.com/maps?v=1.4.14&key=f2226da375179fd2e56ed46a6d20e72e'
@@ -119,8 +112,6 @@ export default {
       this.searchPlaceHandle()
       // 根据地图中心点查附近地点
       this.getUserCurAddressHandle(map)
-      // 清除loading
-      this.loading.clear()
       // 监听地图移动事件，并在移动结束后获取地图中心点并更新地点列表
       const moveendFun = (e) => {
         // 获取地图中心点
@@ -132,7 +123,6 @@ export default {
       const centerSearch = () => {
         this.searchPlaceHandle()
       }
-
       // 绑定事件移动地图事件
       map.on('mapmove', moveendFun) // 更新标记
       map.on('moveend', centerSearch) // 更新数据
@@ -204,7 +194,6 @@ export default {
             } else {
               this.searchList = result.poiList.pois // 将查询到的地点赋值
               this.noSearch = false
-              this.loading = false
             }
           } else {
             this.searchList = []
@@ -228,8 +217,7 @@ export default {
       this.center = [location.lng, location.lat]
       this.search_key = ''
       setTimeout(() => {
-        this.$refs.scrollWarp.scrollTop = 0
-        this.searchList = []
+        this.$refs.scorllColumn.scrollTop = 0
         this.initMapHandle()
       }, 1000)
     },
@@ -248,7 +236,6 @@ export default {
             address
           }
           this.$emit('change', obj)
-          console.log(obj, 'obj')
         }
       })
     }
@@ -258,26 +245,38 @@ export default {
 <style lang="scss" scoped>
 .hl-map {
   width: 100%;
-  height: 100vh;
-  overflow-y: auto;
+  height: 100%;
+  max-height: 100vh;
   background-color: #fff;
   text-align: left;
   color: #333;
-  .sticky-header {
-    position: sticky;
-    top: 0;
-    left: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .fixed-header {
     width: 100%;
     background-color: #fff;
-    z-index: 9;
+    z-index: 2;
+    .header-txt {
+      text-align: center;
+      font-size: 16px;
+      padding: 15px 10px 5px;
+      font-weight: bold;
+    }
     .search-box {
       width: 100%;
     }
-    .map {
-      height: 225px;
+    .map-box {
+      padding: 0 12px;
+      .map {
+        height: 200px;
+        border-radius: 5px;
+      }
     }
   }
   .map-column {
+    flex: 1;
+    overflow-y: auto;
     .address-list {
       padding: 10px 15px;
       .address-item {
@@ -300,15 +299,14 @@ export default {
     }
   }
   .search-popup {
-    position: fixed;
-    top: 54px;
+    position: absolute;
     left: 0;
+    bottom: 0;
     width: 100%;
-    background-color: #fff;
     height: calc(100% - 54px);
     background-color: #fff;
-    z-index: 10;
     overflow-y: auto;
+    z-index: 11;
     .search-list {
       padding: 10px 15px;
       .search-item,.no-search {

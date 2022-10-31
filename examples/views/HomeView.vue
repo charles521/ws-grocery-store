@@ -8,10 +8,11 @@
         </template>
       </hl-area>
     </van-popup>
-    <hl-map />
+    <van-popup v-model="mapIsShow" closeable position="bottom" :style="{ height: '80%',paddingTop: '10px' }" round>
+      <hl-map />
+    </van-popup>
   </div>
 </template>
-
 <script>
 import { Popup } from 'vant'
 import HlArea from '@packages/area/area.vue'
@@ -26,6 +27,7 @@ export default {
   },
   data() {
     return {
+      mapIsShow: true,
       areaIsShow: false
     }
   },
