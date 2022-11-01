@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-import AddressJson from './address.json'
+import axios from 'axios'
 import { Icon } from 'vant'
 export default {
   name: 'HlAreaCom',
@@ -44,6 +44,7 @@ export default {
   },
   data() {
     return {
+      AddressJson: {},
       selectedAddress: [{ name: '请选择', adcode: 0 }], // 顶部已选数据
       selectedIndex: 0, // 当前选择在第几级索引
       addressList: [], // 展示地址列表数据
@@ -61,7 +62,10 @@ export default {
     }
   },
   created() {
-    this.addressList = AddressJson.data
+    axios.get('https://cdn.helixinxuan.com/area.json').then(res => {
+      this.AddressJson = res.data
+      this.addressList = res.data.addres_data
+    })
   },
   methods: {
     // 顶部已选择点击
@@ -76,7 +80,7 @@ export default {
         // 为第一个时重置
         this.selectedIndex = 0
         this.selectedAddress = [{ name: '请选择', adcode: 0 }]
-        this.addressList = AddressJson.data
+        this.addressList = this.AddressJson.addres_data
       } else {
         this.selectedIndex = index
         this.selectedAddress.push({ name: '请选择' })
