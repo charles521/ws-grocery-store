@@ -8,6 +8,7 @@
           show-action
           placeholder="请输入搜索关键词"
           :clearable="false"
+          @input="searchBtnHandle('input')"
           @search="searchBtnHandle"
           @cancel="clearSearchHandle"
         />
@@ -174,7 +175,8 @@ export default {
       })
     },
     // 搜索
-    searchBtnHandle() {
+    searchBtnHandle(type) {
+      if (type === 'input' && this.search_key.length < 2) return
       // eslint-disable-next-line no-undef
       AMap.service(['AMap.PlaceSearch'], () => {
         // 构造地点查询类
@@ -240,6 +242,27 @@ export default {
           this.$emit('change', obj)
         }
       })
+    },
+    // 防抖
+    debounce(func, wait, immediate) {
+      let timer
+      return function() {
+        const context = this
+        const args = arguments
+
+        if (timer) clearTimeout(timer)
+        if (immediate) {
+          const callNow = !timer
+          timer = setTimeout(() => {
+            timer = null
+          }, wait)
+          if (callNow) func.apply(context, args)
+        } else {
+          timer = setTimeout(() => {
+            func.apply(context, args)
+          }, wait)
+        }
+      }
     }
   }
 }

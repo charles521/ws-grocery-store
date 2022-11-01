@@ -1,6 +1,6 @@
 {
   "name": "hl-deco-comp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "hl h5组件库",
   "author": "charles_ws <354395702@qq.com>",
   "main": "lib/index/index.js",
