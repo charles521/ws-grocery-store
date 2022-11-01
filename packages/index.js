@@ -1,8 +1,10 @@
-import area from './area'
+import HlArea from './hl-area'
+import HlMap from './hl-map'
 
 // 存储组件列表
 const components = [
-  area
+  HlArea,
+  HlMap
 ]
 
 // 定义install 方法，接受Vue作为参数。如果使用use注册插件，则所有的组件都将被注册

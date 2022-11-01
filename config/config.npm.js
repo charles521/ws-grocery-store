@@ -1,5 +1,6 @@
 const { resolve, getComponentEntries } = require('./utils')
 const TerserPlugin = require('terser-webpack-plugin')
+const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 
 const npmBuildConfig = {
   // 输出文件目录
@@ -38,8 +39,20 @@ const npmBuildConfig = {
         commonjs: 'vant',
         commonjs2: 'vant',
         amd: 'vant'
+      },
+      'vue-router': {
+        root: 'VueRouter',
+        commonjs: 'VueRouter',
+        commonjs2: 'VueRouter',
+        amd: 'VueRouter'
       }
     },
+    plugins: [
+      new ParallelUglifyPlugin({
+
+        test: new RegExp('\\.(' + ['js'].join('|') + ')$')
+      })
+    ],
     optimization: {
       minimizer: [ // 定制压缩选项
         new TerserPlugin({

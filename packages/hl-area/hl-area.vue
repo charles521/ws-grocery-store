@@ -32,7 +32,7 @@
 import axios from 'axios'
 import { Icon } from 'vant'
 export default {
-  name: 'HlAreaCom',
+  name: 'HlArea',
   components: {
     [Icon.name]: Icon
   },
