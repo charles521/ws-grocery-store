@@ -52,20 +52,23 @@
         <li v-if="noSearch" class="no-search">暂无搜索结果</li>
       </ul>
     </div>
+    <van-loading v-if="mapLoading" class="map-loading" size="42px" vertical>地图加载中...</van-loading>
   </div>
 </template>
 <script>
 import axios from 'axios'
-import { Icon, Search } from 'vant'
+import { Icon, Search, Loading } from 'vant'
 
 export default {
   name: 'HlMap',
   components: {
     [Icon.name]: Icon,
+    [Loading.name]: Loading,
     [Search.name]: Search
   },
   data() {
     return {
+      mapLoading: true,
       center: [121.475190, 31.228833], // 经度+纬度
       search_key: '', // 搜索值
       addressList: [], // 地址列表数据
@@ -109,6 +112,7 @@ export default {
       })
       // 将创建的点标记添加到已有的地图实例：
       map.add(this.marker)
+      this.mapLoading = false
       // 根据地图中心点查附近地点
       this.searchPlaceHandle()
       if (type === 'first_init') {
@@ -278,6 +282,13 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
+  .map-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 9;
+  }
   .fixed-header {
     width: 100%;
     background-color: #fff;
@@ -328,7 +339,7 @@ export default {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: calc(100% - 54px);
+    height: calc(100% - 50px);
     background-color: #fff;
     overflow-y: auto;
     z-index: 11;
