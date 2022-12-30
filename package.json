@@ -1,6 +1,6 @@
 {
   "name": "hl-deco-comp",
-  "version": "0.1.9",
+  "version": "0.2.2",
   "description": "hl h5组件库",
   "author": "charles_ws <354395702@qq.com>",
   "main": "lib/index/index.js",
@@ -11,7 +11,7 @@
     "url": "https://star36.coding.net/p/sass/d/hl_deco_comp/git"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lib": "vue-cli-service build --target lib --name hl-deco-comp --dest lib packages/index.js",

@@ -231,19 +231,27 @@ export default {
     },
     // 调用接口获取省市区
     getAddressHandle(e) {
-      const url = `https://restapi.amap.com/v3/geocode/regeo?output=JSON&location=${e.location.lng},${e.location.lat}&key=5736bb3c16a07524cb2fcbe395d3acc9&radius=1000`
-      axios.get(url).then(res => {
+      const addressUrl = `https://restapi.amap.com/v3/geocode/regeo?output=JSON&location=${e.location.lng},${e.location.lat}&key=5736bb3c16a07524cb2fcbe395d3acc9&radius=1000`
+      const codeUrl = `https://sc.helixinxuan.com/api/v1/address/deal`
+      axios.get(addressUrl).then(res => {
         if (res.data.info === 'OK') {
-          const { province, city, district, township: street } = res.data.regeocode.addressComponent
-          const address = e.name
-          const obj = {
-            province,
-            city: city.length === 0 ? province : city,
-            district,
-            street,
-            address
-          }
-          this.$emit('change', obj)
+          axios.post(codeUrl, {
+            delivery_addresses: res.data.regeocode.formatted_address
+          }).then(oRes => {
+            const addressData = oRes.data
+            const obj = {
+              province: addressData.province,
+              province_code: addressData.province_id,
+              city: addressData.city,
+              city_code: addressData.city_id,
+              district: addressData.county,
+              district_code: addressData.county_id,
+              street: addressData.town,
+              street_code: addressData.city_id,
+              address: e.name
+            }
+            this.$emit('change', obj)
+          })
         }
       })
     },
