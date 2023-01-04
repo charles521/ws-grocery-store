@@ -239,16 +239,21 @@ export default {
             delivery_addresses: res.data.regeocode.formatted_address
           }).then(oRes => {
             const addressData = oRes.data
-            const obj = {
-              province: addressData.province,
-              province_code: addressData.province_id,
-              city: addressData.city,
-              city_code: addressData.city_id,
-              district: addressData.county,
-              district_code: addressData.county_id,
-              street: addressData.town,
-              street_code: addressData.city_id,
-              address: e.name
+            let obj = {}
+            if (JSON.stringify(addressData) === '{}' || !addressData.town) {
+              obj = {}
+            } else {
+              obj = {
+                province: addressData.province,
+                province_code: addressData.province_id,
+                city: addressData.city,
+                city_code: addressData.city_id,
+                district: addressData.county,
+                district_code: addressData.county_id,
+                street: addressData.town,
+                street_code: addressData.town_id,
+                address: e.name
+              }
             }
             this.$emit('change', obj)
           })
