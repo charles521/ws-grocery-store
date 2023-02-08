@@ -68,6 +68,7 @@ export default {
   },
   created() {
     axios.get('https://cdn.helixinxuan.com/area.json').then(res => {
+      console.log(res, 'ressss')
       this.AddressJson = res.data
       this.addressList = res.data.addres_data
       this.areaLoading = false
