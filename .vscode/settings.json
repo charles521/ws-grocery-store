@@ -1,0 +1,90 @@
+{
+  "editor.tabSize": 2,
+  "git.autofetch": false,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  //  #让prettier使用eslint的代码格式进行校验
+  "prettier.eslintIntegration": true,
+  //  #去掉代码结尾的分号
+  "prettier.semi": true,
+  //  #使用单引号替代双引号
+  "prettier.singleQuote": true,
+  "search.exclude": {
+    "**/.history": true
+  },
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "settingsSync.ignoredExtensions": [],
+  "editor.fontLigatures": false,
+  "workbench.colorTheme": "Default Dark+",
+  "files.autoSave": "off",
+  "emmet.excludeLanguages": ["markdown"],
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": ["document"],
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.altClickMovesCursor": false,
+  "terminal.integrated.inheritEnv": false,
+  "files.autoGuessEncoding": true,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.validate": ["typescript", "vue"],
+  "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false,
+    "editor.mouseWheelZoom": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.minimap.enabled": false,
+  "gitlens.proxy": {},
+  "window.zoomLevel": 1,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.startupEditor": "none",
+  "settingsSync.ignoredSettings": [
+    
+  ]
+}
