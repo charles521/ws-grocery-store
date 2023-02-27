@@ -3,37 +3,41 @@
     <div class="hl-area-header">
       <slot name="header" />
     </div>
-    <div class="selectd-column">
-      <div class="scroll-bar">
-        <div
-          v-for="(item,index) in selectedAddress"
-          :key="index"
-          class="item"
-          :style="{color: index === selectedIndex ? color: ''}"
-          @click="onSelectedHandle(index)"
-        >{{ countName(item.name) }}</div>
+    <van-loading v-if="areaLoading" class="area-loading" size="42px" vertical>地址加载中...</van-loading>
+    <template v-else>
+      <div class="selectd-column">
+        <div class="scroll-bar">
+          <div
+            v-for="(item,index) in selectedAddress"
+            :key="index"
+            class="item"
+            :style="{color: index === selectedIndex ? color: ''}"
+            @click="onSelectedHandle(index)"
+          >{{ countName(item.name) }}</div>
+        </div>
       </div>
-    </div>
+      <ul ref="addressListRef" class="address-list">
+        <li
+          v-for="(item, index) in addressList"
+          :key="index"
+          :style="{color: index === listIndex ? color: ''}"
+          @click="choiceAddress(item,index)"
+        >
+          <span class="txt">{{ item.name }}</span>
+          <van-icon v-show="index === listIndex" class="icon" name="success" />
+        </li>
+      </ul>
+    </template>
 
-    <ul ref="addressListRef" class="address-list">
-      <li
-        v-for="(item, index) in addressList"
-        :key="index"
-        :style="{color: index === listIndex ? color: ''}"
-        @click="choiceAddress(item,index)"
-      >
-        <span class="txt">{{ item.name }}</span>
-        <van-icon v-show="index === listIndex" class="icon" name="success" />
-      </li>
-    </ul>
   </div>
 </template>
 <script>
 import axios from 'axios'
-import { Icon } from 'vant'
+import { Icon, Loading } from 'vant'
 export default {
   name: 'HlArea',
   components: {
+    [Loading.name]: Loading,
     [Icon.name]: Icon
   },
   props: {
@@ -48,7 +52,8 @@ export default {
       selectedAddress: [{ name: '请选择', adcode: 0 }], // 顶部已选数据
       selectedIndex: 0, // 当前选择在第几级索引
       addressList: [], // 展示地址列表数据
-      listIndex: null // 当前选择第几个地址
+      listIndex: null, // 当前选择第几个地址
+      areaLoading: true
     }
   },
   computed: {
@@ -63,8 +68,10 @@ export default {
   },
   created() {
     axios.get('https://cdn.helixinxuan.com/area.json').then(res => {
+      console.log(res, 'ressss')
       this.AddressJson = res.data
       this.addressList = res.data.addres_data
+      this.areaLoading = false
     })
   },
   methods: {
@@ -109,8 +116,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 .hl-area {
+  position: relative;
   * {
     box-sizing: border-box;
+  }
+  .area-loading {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 9;
   }
   padding-top: 5px;
   color: #333;

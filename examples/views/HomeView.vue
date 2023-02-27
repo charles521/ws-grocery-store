@@ -23,8 +23,8 @@ export default {
   },
   data() {
     return {
-      mapIsShow: true,
-      areaIsShow: false
+      mapIsShow: false,
+      areaIsShow: true
     }
   },
   methods: {
