@@ -67,7 +67,7 @@ export default {
     }
   },
   created() {
-    axios.get('https://cdn.helixinxuan.com/area.json').then(res => {
+    axios.get('https://static.helicdn.com/area.json').then(res => {
       this.AddressJson = res.data
       this.addressList = res.data.addres_data
       this.areaLoading = false
