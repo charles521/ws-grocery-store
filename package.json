@@ -1,14 +1,14 @@
 {
-  "name": "hl-deco-comp",
-  "version": "0.2.7",
-  "description": "hl h5组件库",
+  "name": "ws-grocery-store",
+  "version": "0.0.10",
+  "description": "charles的杂货铺 各种轮子合集",
   "author": "charles_ws <354395702@qq.com>",
   "main": "lib/index/index.js",
   "keyword": "hl-deco-comp vue",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://star36.coding.net/p/sass/d/hl_deco_comp/git"
+    "url": "https://gitee.com/Charles_ws/ws-grocery-store.git"
   },
   "scripts": {
     "dev": "vue-cli-service serve",
