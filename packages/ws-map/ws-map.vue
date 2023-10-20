@@ -1,5 +1,5 @@
 <template>
-  <div class="hl-map">
+  <div class="ws-map">
     <div class="fixed-header">
       <!-- 搜索框 -->
       <div class="search-box">
@@ -60,7 +60,7 @@ import axios from 'axios'
 import { Icon, Search, Loading } from 'vant'
 
 export default {
-  name: 'HlMap',
+  name: 'WsMap',
   components: {
     [Icon.name]: Icon,
     [Loading.name]: Loading,
@@ -285,7 +285,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.hl-map {
+.ws-map {
   width: 100%;
   height: 100%;
   max-height: 100vh;

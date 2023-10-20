@@ -1,5 +1,5 @@
 <template>
-  <div class="hl-sign">
+  <div class="ws-sign">
     <canvas class="drawing-board" :style="{ width: `${canvasW}px`, height: `${canvasH}px` }" />
     <div class="btn-bar">
       <van-button
@@ -35,7 +35,7 @@
 import SmoothSignature from 'smooth-signature'
 import { Popup, Toast } from 'vant'
 export default {
-  name: 'HlSign',
+  name: 'WsSign',
   components: {
     [Popup.name]: Popup
   },
@@ -104,7 +104,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.hl-sign {
+.ws-sign {
   width: 100%;
   height: 100vh;
   display: flex;

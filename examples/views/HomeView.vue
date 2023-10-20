@@ -8,18 +8,18 @@
 
     <!-- 地址选择弹框 -->
     <van-popup v-model="areaIsShow" closeable position="bottom" :style="{ height: '70%' }" round>
-      <hl-area color="#1989fa" @selected="onSelecteAddressHandle">
+      <ws-area color="#1989fa" @selected="onSelecteAddressHandle">
         <template #header>
           <span>请选择地区</span>
         </template>
-      </hl-area>
+      </ws-area>
     </van-popup>
     <!-- 地图选址 -->
     <van-popup v-model="mapIsShow" closeable position="bottom" :style="{ height: '80%',paddingTop: '10px' }" round>
-      <hl-map @change="mapChangeHandle" />
+      <ws-map @change="mapChangeHandle" />
     </van-popup>
     <!-- 手写签名 -->
-    <hl-sign v-if="signIsShow" :canvas-w="360" :canvas-h="400" @onCanvas="drawHandle" />
+    <ws-sign v-if="signIsShow" :canvas-w="360" :canvas-h="400" @onCanvas="drawHandle" />
   </div>
 </template>
 <script>

@@ -1,7 +1,7 @@
-import HlUI from '../packages/index'
+import wsGrocerStoreUI from '../packages/index'
 
 export default async({ Vue }) => {
   if (typeof process === 'undefined') {
-    Vue.use(HlUI)
+    Vue.use(wsGrocerStoreUI)
   }
 }

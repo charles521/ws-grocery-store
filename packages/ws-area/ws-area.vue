@@ -1,6 +1,6 @@
 <template>
-  <div class="hl-area">
-    <div class="hl-area-header">
+  <div class="ws-area">
+    <div class="ws-area-header">
       <slot name="header" />
     </div>
     <van-loading v-if="areaLoading" class="area-loading" size="42px" vertical>地址加载中...</van-loading>
@@ -35,7 +35,7 @@
 import axios from 'axios'
 import { Icon, Loading } from 'vant'
 export default {
-  name: 'HlArea',
+  name: 'WsArea',
   components: {
     [Loading.name]: Loading,
     [Icon.name]: Icon
@@ -114,7 +114,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.hl-area {
+.ws-area {
   position: relative;
   * {
     box-sizing: border-box;
@@ -132,7 +132,7 @@ export default {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  .hl-area-header {
+  .ws-area-header {
     width: 100%;
     padding: 10px 50px;
     text-align: center;

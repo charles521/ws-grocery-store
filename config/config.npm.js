@@ -19,7 +19,7 @@ const npmBuildConfig = {
       //  依赖输出
       libraryExport: 'default',
       //  依赖名称
-      library: 'hl-deco-comp'
+      library: 'ws-grocery-store'
     },
     externals: {
       vue: {

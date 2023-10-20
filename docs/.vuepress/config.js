@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'hl-deco-comp', // 设置网站标题
+  title: 'ws-grocery-store', // 设置网站标题
   description: '自主搭建的移动端ui组件库', //描述
   base: '/',
   dest: './docs/.vuepress/dist', // 设置输出目录
